@@ -10,17 +10,28 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+    
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - run: npm ci
+      - run: npm run lint
       - run: npm test
+      - run: npm run build
 
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      packages: write
+    
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

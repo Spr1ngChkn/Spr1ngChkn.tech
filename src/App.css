@@ -1,0 +1,154 @@
+/* Define color variables for easy use */
+:root {
+  --primary-purple: #6A0DAD; /* A shade of purple */
+  --accent-turquoise: #40E0D0; /* Turquoise */
+  --text-golden: #FFD700; /* Gold */
+  --accent-green: #32CD32; /* Lime Green */
+  --overlay-bg-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background for overlay */
+}
+
+body {
+  font-family: 'Bubblegum Sans', cursive; /* Apply the bubbly font */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  background-color: var(--primary-purple);
+  color: var(--text-golden); /* Default text color */
+  text-align: center;
+  border: 5px solid var(--text-golden); /* Added a golden border */
+}
+
+
+/* Styling for the main App content */
+.App-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  position: relative; /* For z-index context if needed */
+  z-index: 1; /* Ensure main content is behind overlay */
+}
+
+.main-title {
+  background-color: transparent; /* Remove lightblue background */
+  color: var(--accent-turquoise);
+  font-size: 100px;
+  margin-bottom: 5px;
+}
+
+.main-description {
+  color: var(--text-golden);
+  font-size: 55px;
+  margin-bottom: 20px;
+}
+
+/* General button styling (applies to buttons in Explore) */
+button {
+  background-color: var(--accent-turquoise); /* Normal state: green background */
+  color: gold; /* Text on green: gold */
+  font-family: 'Bubblegum Sans';
+  border: none;
+  padding: 10px 20px; /* Adjusted padding to create a more balanced pill shape for general buttons */
+  border-radius: 9999px; /* Makes the button fully rounded on the ends (pill shape) */
+  cursor: pointer;
+  font-size: 27px; /* Adjusted font size for general buttons */
+  margin: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-green); /* Hover state: turquoise background */
+  color: var(--primary-purple); /* Text on turquoise: purple */
+}
+
+/* Specific styling for the main action button to make it a perfect circle */
+.main-action-button {
+  width: 220px;   /* Set a fixed width */
+  height: 220px;  /* Set a fixed height (equal to width for a circle) */
+  border-radius: 50%; /* Makes it a perfect circle */
+  padding: 0;     /* Remove padding, width/height handle sizing */
+  display: flex;  /* Use flexbox to center text */
+  justify-content: center;
+  align-items: center;
+  font-size: 33px; /* Apply specific font size */
+}
+
+
+/* Styling for the floating Explore overlay */
+.explore-overlay {
+  position: fixed; /* Fixed position relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  background-color: var(--overlay-bg-color); /* Semi-transparent dark background for overlay */
+  display: flex; /* Use flexbox to center content */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of all other content */
+}
+
+.explore-content {
+  background-color: var(--primary-purple); /* Purple background for the actual content box */
+  padding: 30px;
+  font-size: 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* More prominent shadow */
+  text-align: center;
+  color: var(--text-golden); /* Golden text within the explore box */
+  max-width: 500px;
+  width: 90%;
+  position: relative; /* For positioning the close button */
+}
+
+.explore-content p {
+  color: var(--text-golden); /* Ensure p tags inside explore are golden */
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.explore-content .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none; /* Make background transparent */
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: var(--accent-green); /* Close button text color (green) */
+  padding: 5px;
+}
+
+.explore-content .close-button:hover {
+  color: var(--accent-turquoise); /* Close button text color on hover (turquoise) */
+  background-color: transparent;
+}
+
+/* Style for the Instagram embed container */
+.instagram-embed-container {
+  margin-top: 20px;
+  width: 100%; /* Take full width of parent */
+  max-width: 320px; /* Max width for a 'mini' player, Instagram usually defaults to around 320px */
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.instagram-embed-container iframe {
+  width: 100%; /* Make iframe responsive to its container */
+  height: 400px; /* A fixed height that looks good for an Instagram reel */
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 60px; /* Smaller font size for title on screens up to 768px wide */
+  }
+
+  .main-description {
+    font-size: 30px; /* Smaller font size for description */
+  }
+}
