@@ -12,8 +12,8 @@ const Explore = ({ onClose }) => {
   // The Instagram Reel embed URL
   const instagramEmbedUrl = "https://www.instagram.com/p/C6p3Fp4uyhU/embed/";
 
-  // Temporary placeholder URL for the final "false" branch
-  const externalPlaceholderUrl = "https://www.example.com/other-resources";
+  // Default external resource URL - can be overridden via props if needed
+  const externalPlaceholderUrl = "https://github.com/Spr1ngChkn/Spr1ngChkn.tech";
 
   const handleVideoGamesYes = () => {
     const newResponses = [...userResponses, "Video Games: True"];
@@ -102,7 +102,7 @@ const Explore = ({ onClose }) => {
                 src={instagramEmbedUrl}
                 style={{ border: 0 }}
                 scrolling="no"
-                allowFullScreen
+                allowFullScreen={true}
                 title="Instagram Reel"
               ></iframe>
             </div>
